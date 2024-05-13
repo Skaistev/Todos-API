@@ -1,0 +1,12 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS transactions (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    from VARCHAR(255) NOT NULL,
+    to VARCHAR(255) NOT NULL
+);
