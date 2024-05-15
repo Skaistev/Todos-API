@@ -1,6 +1,9 @@
 
 const request = require("supertest");
-const app = require('./app')
+const app = require('./app');
+
+
+// jest.mock('./db');
 
 // describe ("tests collection", ()=> {
 //     test ("first test",()=>{
@@ -37,15 +40,15 @@ const app = require('./app')
           expect(response.statusCode).toBe(200);
           expect(response.body).toBeDefined();
           expect(response.body).not.toBeNull();
-        //   expect(typeof response.body.id).toBe('number')
+          expect(response.body.length).toBe(8)
         })
         })
     
      describe ("POST /transactions", ()=> {
         test('responds with JSON messsage', async ()=>{
-             const userData = {"amount": 1000000,
-             "userFrom": 254 ,
-             "userTo": 2}
+             const userData = {"amount": 999999,
+             "userFrom": 20000 ,
+             "userTo": 254645}
              const response = await request(app)
             .post('/transactions')
             .send(userData);
